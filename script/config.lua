@@ -122,6 +122,10 @@ CALL_IN_ACTION = 1
 
 -------------------------------------------------- 其他配置 --------------------------------------------------
 
+-- 心跳检测，如果注释或为空则不执行
+-- 使用uptime-kuma被动监控push，循环访问url即可 https://github.com/louislam/uptime-kuma 
+--HEARTBEAT_URL = ""
+
 -- 扬声器音量, 0-7
 AUDIO_VOLUME = 1
 
