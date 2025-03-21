@@ -27,6 +27,7 @@ require "util_http"
 require "util_notify"
 require "util_temperature"
 require "util_ntp"
+require "util_uptime"
 require "handler_call"
 require "handler_powerkey"
 require "handler_sms"
@@ -115,6 +116,11 @@ sys.taskInit(function()
     -- 开机同步时间
     util_ntp.sync()
     sys.timerLoopStart(util_ntp.sync, 1000 * 30)
+    
+    --心跳检测
+    if config.HEARTBEAT_URL and config.HEARTBEAT_URL ~= "" then
+		sys.timerLoopStart(util_uptime.send_heartbeat, 60000)  -- 每 60 秒调用一次
+	end
 end)
 
 -- 验证 PIN 码
