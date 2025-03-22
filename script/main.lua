@@ -120,7 +120,7 @@ sys.taskInit(function()
     --心跳检测
     if config.HEARTBEAT_URL and config.HEARTBEAT_URL ~= "" then
 		sys.timerLoopStart(util_uptime.send_heartbeat, 60000)  -- 每 60 秒调用一次
-	end
+    end
 end)
 
 -- 验证 PIN 码
